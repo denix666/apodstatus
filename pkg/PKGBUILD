@@ -1,0 +1,24 @@
+pkgname=apodstatus
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Airpods status and information for Linux."
+arch=('x86_64')
+url='https://github.com/denix666/apodstatus'
+license=('MIT')
+
+source=('apodstatus'
+    'apodstatus.png'
+    'apodstatus.desktop')
+provides=('apodstatus')
+conflicts=('apodstatus')
+
+package() {
+    cd ${srcdir}
+    install -d -m755 ${pkgdir}/usr/bin
+    install -D -m644 apodstatus.png ${pkgdir}/usr/share/pixmaps/apodstatus.png
+    install -D -m644 apodstatus.desktop ${pkgdir}/usr/share/applications/apodstatus.desktop
+    install -D -m755 apodstatus ${pkgdir}/usr/bin/apodstatus
+}
+sha256sums=('fe4d174cebea5d227b0699d59607511a520df4173ffea155f9990e3f0ac2e6ae'
+            'f215645aff2b57ff4d22a0d1062ff2acc5d29cb1a13789dd4aeb36e2f05b688a'
+            '834178f4cb3053595d2590d693b3ffdbfd1a27a5fbdecd13a5637c47e0696005')
